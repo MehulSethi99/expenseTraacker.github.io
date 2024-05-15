@@ -1,0 +1,79 @@
+<div class="font-sans antialiased bg-grey-lightest">
+
+  <!-- Content -->
+  <div *ngIf="!isformSubmitted" class="w-full bg-grey-lightest" style="padding-top: 4rem;">
+    <div class="container mx-auto py-8">
+      <form class="mb-4" (submit)="onRegisterSubmit()">
+        <div class="w-5/6 lg:w-1/2 mx-auto bg-white rounded shadow">
+          <div class="py-4 px-8 text-black text-xl border-b border-grey-lighter">Register for a free account</div>
+          <div class="py-4 px-8">
+            <div class="flex mb-4">
+              <div class="w-1/2 mr-1">
+                <label class="block text-grey-darker text-sm font-bold mb-2" for="first_name">First Name</label>
+                <input class="w-full border rounded p-2 outline-none focus:shadow-outline" name="firstname"
+                  id="firstname" type="text" [(ngModel)]="firstname" placeholder="Your first name">
+              </div>
+              <div class="w-1/2 ml-1">
+                <label class="block text-grey-darker text-sm font-bold mb-2" for="last_name">Last Name</label>
+                <input class="w-full border rounded p-2 outline-none focus:shadow-outline" name="lastname" id="lastname"
+                  type="text" [(ngModel)]="lastname" placeholder="Your last name">
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="block text-grey-darker text-sm font-bold mb-2" for="email">Email Address</label>
+              <input class="w-full border rounded p-2 outline-none focus:shadow-outline" id="email" type="email"
+                name="email" [(ngModel)]="email" placeholder="Your email address">
+            </div>
+            <div class="mb-4">
+              <label class="block text-grey-darker text-sm font-bold mb-2" for="password">Password</label>
+              <input class="w-full border rounded p-2 outline-none focus:shadow-outline" type="password" name="password"
+                id="password" [(ngModel)]="password" placeholder="Your secure password">
+              <p *ngIf="!passwordlengthIsValid" class="text-red-500 text-xs mt-1">At least 6 characters</p>
+            </div>
+            <div class="mb-4">
+              <label class="block text-grey-darker text-sm font-bold mb-2" for="password">Confirm Password</label>
+              <input class="w-full border rounded p-2 outline-none focus:shadow-outline" id="passwordconfirm"
+                name="passwordconfirm" type="password" [(ngModel)]="passwordconfirm" placeholder="Confirm password">
+              <p *ngIf="passwordMissmatch" class="text-red-500 text-xs mt-1">Confirmation password do not match with Password</p>
+            </div>
+            <div class="mb-6 md:w-full">
+              <label class="block text-grey-darker text-sm font-bold mb-2" for="email">Avatar URL</label>
+              <input class="w-full border rounded p-2 outline-none focus:shadow-outline" type="text" name="avatar"
+                id="avatar" [(ngModel)]="avatar" placeholder="Avatar URL (Optional)">
+            </div>
+            <div class="flex items-center justify-between mt-8">
+              <button class="bg-blue-500 hover:bg-blue-700 text-white uppercase text-sm font-semibold px-4 py-2 rounded"
+                type="submit">
+                Sign Up
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <p class="text-center my-4">
+        <a href="/login" class="text-blue-dark text-sm no-underline hover:text-blue-darker">I already have an
+          account</a>
+      </p>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="w-full bg-grey-lighter py-8">
+    <div class="container mx-auto text-center px-8">
+      <p class="text-grey-dark mb-2 text-sm">With ❤️ by<span class="font-bold"> Nikil</span></p>
+    </div>
+  </footer>
+
+  <div *ngIf="isformSubmitted" class="max-w-sm rounded overflow-hidden shadow-lg">
+    <div class="px-6 py-4">
+      <div class="font-bold text-xl mb-2">Verify Email</div>
+      <p class="text-gray-700 text-base">
+        Complete the registration process by clicking the link sent to {{email}}
+      </p>
+    </div>
+    <div class="px-6 py-4">
+      <span
+        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#register</span>
+      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#Expense Manager</span>
+    </div>
+  </div>
+</div>

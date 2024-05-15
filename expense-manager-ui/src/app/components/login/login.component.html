@@ -1,0 +1,38 @@
+<body class="font-sans">
+  <div class="flex items-center h-screen w-full">
+    <div class="w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto">
+    <span class="block w-full text-xl uppercase font-bold mb-4">Login</span>      
+      <form class="mb-4" (submit)="onLoginSubmit()">
+        <div class="mb-4 md:w-full">
+          <label for="email" class="block text-grey-darker text-sm font-bold mb-2">Username or Email</label>
+          <input class="w-full border rounded p-2 outline-none focus:shadow-outline" type="email" name="email" id="email" [(ngModel)]="email"  placeholder="Username or Email">
+        </div>
+        <div class="mb-6 md:w-full">
+          <label for="password"  class="block text-grey-darker text-sm font-bold mb-2">Google Auth Code</label>
+          <input [disabled]="isPasswordChoice" class="w-full border rounded p-2 outline-none focus:shadow-outline"  type="number" name="googleauthcode" id="googleauthcode" [(ngModel)]="googleauthcode" placeholder="Google Auth Code">
+        </div>
+
+        <div class="mb-6 md:w-full">
+          <label for="password" class="block text-grey-darker text-sm font-bold mb-2">Password</label>
+          <input [disabled]="!isPasswordChoice"  class="w-full border rounded p-2 outline-none focus:shadow-outline"  type="password" name="password" id="password" [(ngModel)]="password" placeholder="Password">
+        </div>
+
+        <input type="submit" class="bg-green-500 hover:bg-green-700 text-white uppercase text-sm font-semibold px-4 py-2 rounded" value="Login">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use Password
+        <label class="switch">
+          <input type="checkbox" (click)='isPasswordChoice=!isPasswordChoice'>
+          <span class="slider round"></span>
+        </label>
+      </form>
+      <p class="text-center my-4">
+        <a href="/register" class="text-blue-dark text-sm no-underline hover:text-blue-darker">I do not have an account</a>
+      </p>
+
+      <footer class="w-full bg-grey-lighter py-8">
+        <div class="container mx-auto text-center px-8">
+          <p class="text-grey-dark mb-2 text-sm">With ❤️ by<span class="font-bold"> Nikil</span></p>
+        </div>
+      </footer>
+  </div>
+</div>
+</body>
